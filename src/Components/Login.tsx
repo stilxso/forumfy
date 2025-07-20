@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate()
 
     function loginUser(e: React.FormEvent) {
         e.preventDefault();
@@ -25,7 +24,6 @@ function Login() {
             console.log('Success:', data);
             if (!data.token) {
                 return alert('Invalid email or password');
-                window.location.href = '/login';
                 
             }
             localStorage.setItem('data', JSON.stringify(data));
